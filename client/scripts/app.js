@@ -65,13 +65,12 @@ var App = {
         myNode.removeChild(myNode.firstChild);
       }
       // examine the response from the server request:
-      console.log(data.results)
+      // console.log(data.results)
       for (let i = 0; i < data.results.length; i++) {
         if (data.results[i].text === undefined || data.results[i].text.includes('<script>')) {
           continue;
         }
         MessagesView.renderMessage(data.results[i]);
-        //RoomsView.initialize();
         if (!Rooms.roomList[data.results[i].roomname]) {
           Rooms.add(data.results[i].roomname);
         }

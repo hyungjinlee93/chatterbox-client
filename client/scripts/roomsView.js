@@ -4,6 +4,10 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function () {
+    // let rooms = Object.keys(Rooms.roomList);
+    // rooms.forEach(room => {
+    //   RoomsView.renderRoom(room);
+    // });
 
     RoomsView.$button.on('click', function () {
       var newRoom = prompt('Please add a new room');

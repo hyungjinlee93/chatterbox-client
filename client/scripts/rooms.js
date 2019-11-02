@@ -3,6 +3,5 @@ var Rooms = {
   add: function (room) {
     Rooms.roomList[room] = true;
     RoomsView.renderRoom(room);
-    RoomsView.initialize();
   }
 };
