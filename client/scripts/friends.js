@@ -1,13 +1,24 @@
-// var Friends = {
+var Friends = {
 
-//   // $().click(function() {
-//     $(this).addClass('makeBold');
-//     // $().css(font-weight:bold;)
-//   });
-// };
+  addFriend: function () {
 
-document.getElementByClass("username").addEventListener("click", makeBold);
+  },
 
-var makeBold = function () {
-  $(this).addClass('makeBold');
-}
+  toggleStatus: function (name) {
+    if (this.friendList.includes(name)) {
+      this.friendList.splice(this.friendList.indexOf(name), 1);
+    } else {
+      this.friendList.push(name);
+    }
+  },
+
+  friendList: [],
+
+  initialize: function () {
+    $(document).on('click', '.username', function (element) {
+      Friends.toggleStatus(element.target.innerText)
+    });
+  },
+
+
+};

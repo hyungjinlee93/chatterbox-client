@@ -91,3 +91,7 @@ form input[type=text] {
 .makeBold {
     font-weight: bold;
 }
+
+.makeHighlight {
+    background-color: yellow;
+}
