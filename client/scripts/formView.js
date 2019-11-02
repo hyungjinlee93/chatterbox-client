@@ -14,13 +14,11 @@ var FormView = {
       text: $('#message')[0].value,
       roomname: $('select')[0].value
     });
+    $('#message')[0].value = '';
   },
 
   setStatus: function (active) {
     var status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
   }
-
-
-
 };

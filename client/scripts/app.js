@@ -60,19 +60,21 @@ var App = {
 
   fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
-      const myNode = document.getElementById("chats");
-      while (myNode.firstChild) {
-        myNode.removeChild(myNode.firstChild);
-      }
+      $('#chats').empty();
+      let currentRoom = $('select')[0].value;
       // examine the response from the server request:
       // console.log(data.results)
       for (let i = 0; i < data.results.length; i++) {
         if (data.results[i].text === undefined || data.results[i].text.includes('<script>')) {
           continue;
         }
-        MessagesView.renderMessage(data.results[i]);
         if (!Rooms.roomList[data.results[i].roomname]) {
           Rooms.add(data.results[i].roomname);
+        }
+        if (currentRoom === '(all rooms)') {
+          MessagesView.renderMessage(data.results[i]);
+        } else if (data.results[i].roomname === currentRoom) {
+          MessagesView.renderMessage(data.results[i]);
         }
       }
       callback();
